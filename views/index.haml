@@ -11,7 +11,7 @@
     %script{ src: "/js/jquery-3.3.1.min.js" }
     %script{ src: "/js/index.js" }
     %title=title
-  %body
+  %body{ ontouchmove: "event.preventDefault()" }
     %table
       %tr
         %td
@@ -20,9 +20,9 @@
               %tr
                 - 16.times do |x|
                   %td
-                    %div{ class: 'cell black', id: 'cell_#{x}_#{y}' }
+                    %div{ class: 'cell black', id: "cell_#{x}_#{y}" }
         %td
           %div#pallets
             - %w[black white red yellow green aqua blue pink].each do |color|
-              %div{ class: "pallet #{color}", id: "#{color}_pallet" }
+              %div{ class: "pallet #{color}", id: "#{color}_pallet", onclick: "clickPallet(\"#{color}\");" }
           %div#clear

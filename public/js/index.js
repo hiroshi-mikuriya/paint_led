@@ -1,17 +1,19 @@
-const click_icon = (id) => {
-    $.ajax({
-        url:'./select',
-        type:'POST',
-        data:{ 'id' : id }
-    })
-    .done((data) => {
-        JSON.parse(data).select.forEach((c) => {
-            var cls = ['selected', 'unselected'];
-            if(c.selected){
-                cls = cls.reverse();
-            }
-            $('#' + c.id).removeClass(cls[0]).addClass(cls[1]);
-        });
-    })
-    .fail((data) => alert('failed'));
+var selected_color = "black";
+
+const clickPallet = (id) => {
+    selected_color = id;
 }
+$(document).ready(() => {
+    for(var x = 0; x < 16; ++x){
+        for(var y = 0; y < 32; ++y){
+            id = "#cell_" + x + "_" + y;
+            $(id).hover(() => {
+                // over
+                $(id).css("background-color", selected_color);
+                console.log(selected_color + id);
+            }, () => {
+                // out
+            });
+        }
+    }
+});

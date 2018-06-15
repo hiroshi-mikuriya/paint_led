@@ -1,18 +1,18 @@
 #cells
 {
-    rule: all;
-    border: 5;
+    border-spacing: 0px;   
 }
 .cell
 {
-    width: 30px;
-    height: 30px;
+    border-radius: 30%;
+    width: 15px;
+    height: 15px;
 }
 .pallet
 {
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     display: block;
     margin: 10px;
     border-style: solid;
