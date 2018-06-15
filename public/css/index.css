@@ -5,8 +5,8 @@
 .cell
 {
     border-radius: 30%;
-    width: 15px;
-    height: 15px;
+    background-color: black;
+    padding: 0px;
 }
 .pallet
 {
@@ -21,8 +21,7 @@
 .black
 {
     background-color: black;
-    border: solid 2px white;
-    border-color: gray;
+    border: solid 2px gray;
 }
 .white
 {
