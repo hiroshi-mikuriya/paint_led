@@ -1,6 +1,10 @@
+table
+{
+    text-align: center;
+}
 #cells
 {
-    border-spacing: 0px;   
+    border-spacing: 0px;
 }
 .cell
 {
