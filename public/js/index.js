@@ -10,12 +10,16 @@ const updateWindow = () => {
     const left = ($(window).width() - $("#main").width()) / 2;
     $("#main").css("margin-top", top);
     $("#main").css("margin-left", left);
+    var clear = $("#clear");
+    clear.css("height", "50px");
+    clear.css("width", "100px");
+    clear.text("やりなおし");
 }
 const updateCellColor = (event) => {
     const p0 = $("#cells").offset();
     const p1 = event.changedTouches[0];
-    const x = Math.floor((p1.pageX - p0.left) / CELL_WIDTH);
-    const y = Math.floor((p1.pageY - p0.top) / CELL_HEIGHT);
+    const x = Math.floor((p1.pageX - p0.left) / (CELL_WIDTH + 1.1));
+    const y = Math.floor((p1.pageY - p0.top) / (CELL_HEIGHT + 1.1));
     const id = "#cell_" + x + "_" + y;
     $(id).css("background-color", selected_color);
 }
@@ -27,12 +31,20 @@ $(document).ready(() => {
         updateCellColor(event);
     });
     $("#cells").on("touchend", (event) => {
-        updateCellColor(event);
+        // updateCellColor(event);
     });
     $(".cell").css("width", CELL_WIDTH);
     $(".cell").css("height", CELL_HEIGHT);
     updateWindow();
     $(window).resize(() => {
         updateWindow();
+    });
+    $("#clear").on("click", () => {
+        for(var x = 0; x < 16; ++x){
+            for(var y = 0; y < 32; ++y){
+                const id = "#cell_" + x + "_" + y;
+                $(id).css("background-color", "black");
+            }
+        }
     });
 });

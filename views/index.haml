@@ -12,6 +12,7 @@
     %script{ src: "js/index.js" }
     %title=title
   %body{ ontouchmove: "event.preventDefault()", background: "assets/wallpaper.jpg" }
+    %div#clear
     %table#main
       %tr
         %td
@@ -25,4 +26,3 @@
           %div#pallets
             - %w[black white red yellow green aqua blue pink].each do |color|
               %div{ class: "pallet #{color}", id: "#{color}_pallet", onclick: "clickPallet(\"#{color}\");" }
-          %div#clear

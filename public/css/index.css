@@ -2,6 +2,15 @@
 {
     border-spacing: 0px;
 }
+#clear
+{
+    position: absolute;
+    text-align: center;
+    border-radius: 20px;
+    vertical-align: middle;
+    background-color: #DDD;
+    border: solid 5px black;
+}
 .cell
 {
     border-radius: 30%;
