@@ -1,0 +1,26 @@
+.icon
+{
+    text-align: center;
+    margin: 30px;
+}
+.selected
+{
+    vertical-align: middle;
+	display: table-cell;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    border: solid 10px #AFA;
+    background-color: #DFD;
+    color: #707;
+}
+.unselected
+{
+    vertical-align: middle;
+	display: table-cell;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: #FDD;
+    color: #077;
+}
