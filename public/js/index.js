@@ -18,10 +18,18 @@ const updateWindow = () => {
 const updateCellColor = (event) => {
     const p0 = $("#cells").offset();
     const p1 = event.changedTouches[0];
-    const x = Math.floor((p1.pageX - p0.left) / (CELL_WIDTH + 1.1));
-    const y = Math.floor((p1.pageY - p0.top) / (CELL_HEIGHT + 1.1));
+    const x = Math.floor((p1.pageX - p0.left) / (CELL_WIDTH + 1.2));
+    const y = Math.floor((p1.pageY - p0.top) / (CELL_HEIGHT + 1.2));
     const id = "#cell_" + x + "_" + y;
     $(id).css("background-color", selected_color);
+}
+const clearCells = () => {
+    for(var x = 0; x < 16; ++x){
+        for(var y = 0; y < 32; ++y){
+            const id = "#cell_" + x + "_" + y;
+            $(id).css("background-color", selected_color);
+        }
+    }
 }
 $(document).ready(() => {
     $("#cells").on("touchstart", (event) => {
@@ -30,21 +38,11 @@ $(document).ready(() => {
     $("#cells").on("touchmove", (event) => {
         updateCellColor(event);
     });
-    $("#cells").on("touchend", (event) => {
-        // updateCellColor(event);
-    });
-    $(".cell").css("width", CELL_WIDTH);
-    $(".cell").css("height", CELL_HEIGHT);
+    $(".cell").css("width", CELL_WIDTH).css("height", CELL_HEIGHT);
     updateWindow();
     $(window).resize(() => {
         updateWindow();
     });
-    $("#clear").on("click", () => {
-        for(var x = 0; x < 16; ++x){
-            for(var y = 0; y < 32; ++y){
-                const id = "#cell_" + x + "_" + y;
-                $(id).css("background-color", "black");
-            }
-        }
-    });
+    clearCells();
+    $("#clear").on("click", () => clearCells());
 });
