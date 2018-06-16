@@ -1,14 +1,14 @@
 var selected_color = "transparent";
 const PALLETS = [
-    { color: "transparent" },
-    { color: "white" },
-    { color: "red" },
-    { color: "yellow" },
-    { color: "lightgreen" },
-    { color: "aqua" },
-    { color: "blue" },
-    { color: "pink" },
-    { color: "violet" }
+    { id: "pallet0", color: "transparent" },
+    { id: "pallet1", color: "white" },
+    { id: "pallet2", color: "red" },
+    { id: "pallet3", color: "yellow" },
+    { id: "pallet4", color: "lightgreen" },
+    { id: "pallet5", color: "aqua" },
+    { id: "pallet6", color: "blue" },
+    { id: "pallet7", color: "pink" },
+    { id: "pallet8", color: "violet" }
 ];
 const CELL_WIDTH = 16;
 const CELL_HEIGHT = 16;
@@ -51,13 +51,12 @@ $(document).ready(() => {
     clearCells();
     $("#trash").click(() => clearCells());
     $("#transparent").click(() => clickPallet("transparent"));
-    for(var i = 0; i < PALLETS.length; ++i){
-        const pallet = PALLETS[i];
-        const id = "#pallet" + i;
-        $(id).addClass("pallet").on("click", () => clickPallet(pallet.color)).css("background-color", pallet.color);
+    PALLETS.forEach(pallet => {
+        var obj = $("#" + pallet.id);
+        obj.addClass("pallet").on("click", () => clickPallet(pallet.color)).css("background-color", pallet.color);
         if(pallet.color === "transparent"){
             const img = $("<img>").attr("border", 0).attr("src", "assets/eraser.png").attr("width", "50px").attr("height", "50px");
-            $(id).css("background-color", "lightgray").append(img);
+            obj.css("background-color", "lightgray").append(img);
         }
-    }
+    });
 });
