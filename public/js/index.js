@@ -1,15 +1,15 @@
 var selected_pallet;
 var current_cells; // Array [16][32]
 const PALLETS = {
-    pallet0: { color: "transparent", unselected: "black", selected: "red" },
-    pallet1: { color: "white", unselected: "black", selected: "red" },
-    pallet2: { color: "red", unselected: "black", selected: "blue" },
-    pallet3: { color: "yellow", unselected: "black", selected: "red" },
-    pallet4: { color: "lightgreen", unselected: "black", selected: "red" },
-    pallet5: { color: "aqua", unselected: "black", selected: "red" },
-    pallet6: { color: "blue", unselected: "black", selected: "red" },
-    pallet7: { color: "pink", unselected: "black", selected: "red" },
-    pallet8: { color: "violet", unselected: "black", selected: "red" }
+    pallet0: { color: "transparent", unselected: "black", selected: "red", value: "000000" },
+    pallet1: { color: "white", unselected: "black", selected: "red", value: "FFFFFF" },
+    pallet2: { color: "red", unselected: "black", selected: "blue", value: "FF0000" },
+    pallet3: { color: "yellow", unselected: "black", selected: "red", value: "FFFF00" },
+    pallet4: { color: "lightgreen", unselected: "black", selected: "red", value: "00FF00" },
+    pallet5: { color: "aqua", unselected: "black", selected: "red", value: "00FFFF" },
+    pallet6: { color: "blue", unselected: "black", selected: "red", value: "0000FF" },
+    pallet7: { color: "pink", unselected: "black", selected: "red", value: "FF0088" },
+    pallet8: { color: "violet", unselected: "black", selected: "red", value: "FF00FF" },
 };
 const CELL_WIDTH = 16;
 const CELL_HEIGHT = 16;
