@@ -11,8 +11,9 @@
     %script{ src: "js/jquery-3.3.1.min.js" }
     %script{ src: "js/index.js" }
     %title=title
-  %body{ ontouchmove: "event.preventDefault()", background: "assets/wallpaper.jpg" }
-    %div#clear
+  %body{ ontouchmove: "event.preventDefault()", style: "background-image: url(assets/wallpaper.jpg);" }
+    %a#trash 
+      %img{ border: 0, src: "assets/trash.png", width: "50px", height: "50px" }
     %table#main
       %tr
         %td
@@ -24,5 +25,7 @@
                     %div{ class: 'cell', id: "cell_#{x}_#{y}" }
         %td
           %div#pallets
-            - %w[black white red yellow green aqua blue pink].each do |color|
+            %a#eraser
+              %img{ border: 0, src: "assets/eraser.png", width: "60px", height: "60px" }
+            - %w[white red yellow green aqua blue pink].each do |color|
               %div{ class: "pallet #{color}", id: "#{color}_pallet", onclick: "clickPallet(\"#{color}\");" }
