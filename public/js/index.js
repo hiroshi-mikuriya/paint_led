@@ -23,7 +23,7 @@ const clearCells = () => {
     for(var x = 0; x < 16; ++x){
         for(var y = 0; y < 32; ++y){
             const id = "#cell_" + x + "_" + y;
-            $(id).css("background-color", "transparents");
+            $(id).css("background-color", "transparent");
         }
     }
 }
@@ -39,5 +39,5 @@ $(document).ready(() => {
     });
     clearCells();
     $("#trash").click(() => clearCells());
-    $("#eraser").click(() => clickPallet("transparents"));
+    $("#eraser").click(() => clickPallet("transparent"));
 });

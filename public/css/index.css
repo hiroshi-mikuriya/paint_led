@@ -11,6 +11,10 @@ body
     position: absolute;
     text-align: center;
 }
+#trash img
+{
+    margin-top: 7px;
+}
 .cell
 {
     border-radius: 30%;
@@ -35,6 +39,19 @@ body
 {
     background-color: transparents;
     border: solid 2px gray;
+}
+#eraser
+{
+    text-align: center;
+}
+#eraser img
+{
+    margin-top: 2px;
+}
+.gray
+{
+    background-color: lightgray;
+    border-color: black;
 }
 .white
 {
