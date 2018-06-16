@@ -34,17 +34,22 @@ body
     margin: 10px;
     border-style: solid;
     border-width: 3px;
+    text-align: center;
+}
+.pallet img
+{
+    margin-top: 3px;
 }
 .transparents
 {
     background-color: transparents;
     border: solid 2px gray;
 }
-#eraser
+#transparent
 {
     text-align: center;
 }
-#eraser img
+#transparent img
 {
     margin-top: 2px;
 }

@@ -1,4 +1,15 @@
-var selected_color = "transparents";
+var selected_color = "transparent";
+const PALLETS = [
+    { color: "transparent" },
+    { color: "white" },
+    { color: "red" },
+    { color: "yellow" },
+    { color: "lightgreen" },
+    { color: "aqua" },
+    { color: "blue" },
+    { color: "pink" },
+    { color: "violet" }
+];
 const CELL_WIDTH = 16;
 const CELL_HEIGHT = 16;
 
@@ -39,5 +50,14 @@ $(document).ready(() => {
     });
     clearCells();
     $("#trash").click(() => clearCells());
-    $("#eraser").click(() => clickPallet("transparent"));
+    $("#transparent").click(() => clickPallet("transparent"));
+    for(var i = 0; i < PALLETS.length; ++i){
+        const pallet = PALLETS[i];
+        const id = "#pallet" + i;
+        $(id).addClass("pallet").on("click", () => clickPallet(pallet.color)).css("background-color", pallet.color);
+        if(pallet.color === "transparent"){
+            const img = $("<img>").attr("border", 0).attr("src", "assets/eraser.png").attr("width", "50px").attr("height", "50px");
+            $(id).css("background-color", "lightgray").append(img);
+        }
+    }
 });
