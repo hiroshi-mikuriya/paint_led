@@ -24,6 +24,9 @@
                   %td
                     %div{ class: 'cell', id: "cell_#{x}_#{y}" }
         %td
-          %div#pallets
-            - 32.times do |i|
-              %div{ id: "pallet#{i}" }
+          %table#pallets
+            - 8.times do |y|
+              %tr
+              - 2.times do |x|
+                %td
+                  %div{ id: "pallet#{y + 8 * x}" }
