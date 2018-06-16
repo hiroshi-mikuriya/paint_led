@@ -30,7 +30,7 @@ const updateWindow = () => {
 const setCell = (x, y, pallet) => {
     const id = "#cell_" + x + "_" + y;
     $(id).css("background-color", PALLETS[pallet].color);
-    current_cells[x][y] = PALLETS[pallet];
+    current_cells[x][y] = PALLETS[pallet].value;
 }
 const updateCellColor = event => {
     const p0 = $("#cells").offset();
@@ -45,6 +45,13 @@ const clearCells = () => {
             setCell(x, y, "pallet0");
         }
     }
+}
+const postCells = () => {
+    $.ajax({
+        url:'./led',
+        type:'POST',
+        data:{ 'led' : current_cells }
+    }).done(data => {}).fail(data => {});
 }
 $(document).ready(() => {
     $("#cells").on("touchstart", event => {
@@ -73,4 +80,5 @@ $(document).ready(() => {
         }
     }
     setPallet("pallet0");
+    setInterval(postCells, 100);
 });
