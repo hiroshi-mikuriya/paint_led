@@ -2,7 +2,7 @@ var selected_color = "transparents";
 const CELL_WIDTH = 16;
 const CELL_HEIGHT = 16;
 
-const clickPallet = (color) => {
+const clickPallet = color => {
     selected_color = color;
 }
 const updateWindow = () => {
@@ -11,7 +11,7 @@ const updateWindow = () => {
     const left = ($(window).width() - $("#main").width()) / 2;
     $("#main").css("margin-top", top).css("margin-left", left);
 }
-const updateCellColor = (event) => {
+const updateCellColor = event => {
     const p0 = $("#cells").offset();
     const p1 = event.changedTouches[0];
     const x = Math.floor((p1.pageX - p0.left) / (CELL_WIDTH + 3.6));
@@ -28,9 +28,9 @@ const clearCells = () => {
     }
 }
 $(document).ready(() => {
-    $("#cells").on("touchstart", (event) => {
+    $("#cells").on("touchstart", event => {
         updateCellColor(event);
-    }).on("touchmove", (event) => {
+    }).on("touchmove", event => {
         updateCellColor(event);
     });
     updateWindow();
