@@ -6,14 +6,11 @@ const clickPallet = (id) => {
     selected_color = id;
 }
 const updateWindow = () => {
+    $(".cell").css("width", CELL_WIDTH).css("height", CELL_HEIGHT);
     const top = ($(window).height() - $("#main").height()) / 2;
     const left = ($(window).width() - $("#main").width()) / 2;
-    $("#main").css("margin-top", top);
-    $("#main").css("margin-left", left);
-    var clear = $("#clear");
-    clear.css("height", "50px");
-    clear.css("width", "100px");
-    clear.text("やりなおし");
+    $("#main").css("margin-top", top).css("margin-left", left);
+    $("#clear").css("height", "50px").css("width", "100px").text("やりなおし");
 }
 const updateCellColor = (event) => {
     const p0 = $("#cells").offset();
@@ -34,11 +31,9 @@ const clearCells = () => {
 $(document).ready(() => {
     $("#cells").on("touchstart", (event) => {
         updateCellColor(event);
-    });
-    $("#cells").on("touchmove", (event) => {
+    }).on("touchmove", (event) => {
         updateCellColor(event);
     });
-    $(".cell").css("width", CELL_WIDTH).css("height", CELL_HEIGHT);
     updateWindow();
     $(window).resize(() => {
         updateWindow();
