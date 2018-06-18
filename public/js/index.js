@@ -8,8 +8,9 @@ const PALLETS = {
     pallet4: { color: "lightgreen", off: "black", on: "red", led: "00FF00" },
     pallet5: { color: "aqua", off: "black", on: "red", led: "00FFFF" },
     pallet6: { color: "blue", off: "black", on: "red", led: "0000FF" },
-    pallet7: { color: "pink", off: "black", on: "red", led: "FF0088" },
-    pallet8: { color: "violet", off: "black", on: "red", led: "FF00FF" },
+    pallet9: { color: "pink", off: "black", on: "red", led: "FF0088" },
+    pallet10: { color: "violet", off: "black", on: "red", led: "FF00FF" },
+    pallet11: { color: "orange", off: "black", on: "blue", led: "FF4400" },
 };
 const CELL_WIDTH = 16;
 const CELL_HEIGHT = 16;
@@ -40,8 +41,8 @@ const updateCellColor = event => {
     setCell(x, y, g_selected_pallet);
 }
 const clearCells = () => {
-    for(var x = 0; x < 16; ++x){
-        for(var y = 0; y < 32; ++y){
+    for(let x = 0; x < 16; ++x){
+        for(let y = 0; y < 32; ++y){
             setCell(x, y, "pallet0");
         }
     }
@@ -71,9 +72,10 @@ $(document).ready(() => {
     $("#trash").click(() => clearCells());
     for(let id in PALLETS){
         const obj = $("#" + id);
-        const pallet = PALLETS[id];
-        obj.addClass("pallet").on("touchstart", event => setPallet(id)).css("background-color", pallet.color);
-        if(pallet.color === "transparent"){
+        const color = PALLETS[id].color;
+        obj.addClass("pallet").on("touchstart", event => setPallet(id)).css("background-color", color)
+            .on("touchmove", event => setPallet(id)).css("background-color", color);
+        if(color === "transparent"){
             const img = $("<img>").attr("border", 0).attr("src", "assets/eraser.png").attr("width", "50px").attr("height", "50px");
             obj.css("background-color", "lightgray").append(img);
         }
