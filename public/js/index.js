@@ -4,7 +4,7 @@ const PALLETS = {
     pallet0: { color: "transparent", off: "black", on: "red", led: "000000" },
     pallet1: { color: "white", off: "black", on: "red", led: "FFFFFF" },
     pallet2: { color: "red", off: "black", on: "blue", led: "FF0000" },
-    pallet3: { color: "yellow", off: "black", on: "red", led: "FFFF00" },
+    pallet3: { color: "yellow", off: "black", on: "red", led: "FFAA00" },
     pallet4: { color: "lightgreen", off: "black", on: "red", led: "00FF00" },
     pallet5: { color: "aqua", off: "black", on: "red", led: "00FFFF" },
     pallet6: { color: "blue", off: "black", on: "red", led: "0000FF" },
@@ -69,11 +69,10 @@ $(document).ready(() => {
     }
     clearCells();
     $("#trash").click(() => clearCells());
-    $("#transparent").click(() => clickPallet("transparent"));
     for(let id in PALLETS){
-        var obj = $("#" + id);
+        const obj = $("#" + id);
         const pallet = PALLETS[id];
-        obj.addClass("pallet").on("click", () => setPallet(id)).css("background-color", pallet.color);
+        obj.addClass("pallet").on("touchstart", event => setPallet(id)).css("background-color", pallet.color);
         if(pallet.color === "transparent"){
             const img = $("<img>").attr("border", 0).attr("src", "assets/eraser.png").attr("width", "50px").attr("height", "50px");
             obj.css("background-color", "lightgray").append(img);
