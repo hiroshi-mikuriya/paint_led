@@ -4,7 +4,7 @@ const PALLETS = {
     pallet0: { color: "transparent", off: "black", on: "red", led: "000000" },
     pallet1: { color: "white", off: "black", on: "red", led: "FFFFFF" },
     pallet2: { color: "red", off: "black", on: "blue", led: "FF0000" },
-    pallet3: { color: "yellow", off: "black", on: "red", led: "FFAA00" },
+    pallet3: { color: "yellow", off: "black", on: "red", led: "FF8800" },
     pallet4: { color: "lightgreen", off: "black", on: "red", led: "00FF00" },
     pallet5: { color: "aqua", off: "black", on: "red", led: "00FFFF" },
     pallet6: { color: "blue", off: "black", on: "red", led: "0000FF" },
@@ -41,8 +41,8 @@ const updateCellColor = event => {
     setCell(x, y, g_selected_pallet);
 }
 const clearCells = () => {
-    for(let x = 0; x < 16; ++x){
-        for(let y = 0; y < 32; ++y){
+    for(let x = 0; x < g_led_req_params.length; ++x){
+        for(let y = 0; y < g_led_req_params[x].length; ++y){
             setCell(x, y, "pallet0");
         }
     }
