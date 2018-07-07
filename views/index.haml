@@ -17,6 +17,13 @@
     %table#main
       %tr
         %td
+          %table#page
+            - (1..8).each do |page|
+              %tr
+                %td
+                  %div{ class: 'page', id: "page#{page}" }
+                    #{page}
+        %td
           %table#cells
             - 32.times do |y|
               %tr
