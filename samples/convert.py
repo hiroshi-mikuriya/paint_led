@@ -15,7 +15,7 @@ for x in range(16):
     r = int(v0[0], 16)
     g = int(v0[1], 16)
     b = int(v0[2], 16)
-    m[y][x] = [0, g, r]
+    m[y][x] = [b, g, r]
 
 # cv2.imshow("image", m)
 # cv2.waitKey()
